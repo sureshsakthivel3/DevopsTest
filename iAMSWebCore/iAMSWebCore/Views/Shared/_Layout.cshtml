@@ -1,0 +1,70 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages;
+@inject IWebHostEnvironment environment
+@{
+    var endpoint = Context.GetEndpoint() as RouteEndpoint;
+    var jsFile = endpoint?.Metadata.OfType<PageActionDescriptor>().FirstOrDefault()?.ViewEnginePath.Trim('/');
+    var fileExists = jsFile is not null ? File.Exists(System.IO.Path.Combine(environment.WebRootPath, "js", jsFile + ".js")) : false;
+}
+@if (fileExists)
+{
+    <script src="~/js/@(jsFile).js"></script>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - iAMS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/iAMSWebCore.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="GeneralSettings" asp-action="GeneralSettings">General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="AccessSettings" asp-action="AccessSettings">Access</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="CommunicationSettings" asp-action="CommunicationSettings">Communication</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ModuleSettings" asp-action="ModuleSettings">Module</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="IntegrationSettings" asp-action="IntegrationSettings">Integration</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="divCommonBreadcrumb" class="uibreadcrumb col-md-6" style="margin-top:2px;font-weight:bold;font-size:16px;">
+        </div>
+        <div class="col-md-6">
+            <div id="divActionButton" class="pull-right">
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*  <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - iAMSWebCore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
