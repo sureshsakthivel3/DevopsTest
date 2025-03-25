@@ -61,11 +61,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\iAMSWebCore\\iAMSWebCore\\iAMSWebCore.csproj",
-      "projectName": "iAMSWebCore",
-      "projectPath": "D:\\iAMSWebCore\\iAMSWebCore\\iAMSWebCore.csproj",
+      "projectUniqueName": "D:\\TestProject\\DevopsTest\\TestProject\\TestProject\\TestProject.csproj",
+      "projectName": "TestProject",
+      "projectPath": "D:\\TestProject\\DevopsTest\\TestProject\\TestProject\\TestProject.csproj",
       "packagesPath": "C:\\Users\\SureshSakthivel\\.nuget\\packages\\",
-      "outputPath": "D:\\iAMSWebCore\\iAMSWebCore\\obj\\",
+      "outputPath": "D:\\TestProject\\DevopsTest\\TestProject\\TestProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -128,7 +128,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.407/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
